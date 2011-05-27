@@ -6,40 +6,9 @@ require 'rake/clean'
 require 'rake/gempackagetask'
 load 'test/tasks.rake'
 
-TO_CSV_VERSION = '1.0.3'
 CLEAN.include('pkg')
 
-spec = Gem::Specification.new do |s|
-  s.author = "Ícaro Leopoldino da Motta"
-  s.email = "icaro.ldm@gmail.com"
-  s.platform = Gem::Platform::RUBY
-  s.required_ruby_version = '>= 1.8.7'
-  s.name = "to-csv"
-  s.summary = s.description = "Convert arrays to CSV (array of hashes, matrixes, ActiveRecord objects etc)."
-  s.homepage = "http://github.com/ilmotta/to-csv"
-  s.version = TO_CSV_VERSION
-
-  s.add_dependency 'activesupport', '>= 3.0'
-  s.add_development_dependency 'activerecord', '>= 3.0'
-
-  s.has_rdoc = true
-  s.require_path = "lib"
-  s.extra_rdoc_files = FileList['*.rdoc']
-  s.files = FileList['init.rb', 'MIT-LICENSE', 'Rakefile', 'lib/**/*', 'test/**/*']
-
-  s.post_install_message = %q{
-========================================================================
-
-  Thanks for installing ToCSV.
-
-  If your Ruby version is lower than 1.9 you need to install fastercsv.
-
-    $ sudo gem install fastercsv
-
-========================================================================
-
-}
-end
+spec = Gem::Specification.load("to_csv.gemspec")
 
 Rake::GemPackageTask.new(spec) do |pkg|
   pkg.define
