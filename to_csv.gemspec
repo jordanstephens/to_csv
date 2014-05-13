@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.email = "icaro.ldm@gmail.com"
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 1.8.7'
-  s.name = "to-csv"
+  s.name = "to_csv"
   s.summary = s.description = "Convert arrays to CSV (array of hashes, matrixes, ActiveRecord objects etc)."
-  s.homepage = "http://github.com/cicloid/to-csv"
+  s.homepage = "http://github.com/jordanstephens/to_csv"
   s.version = ToCSV::VERSION
 
   s.add_dependency 'activesupport', '>= 3.0'
