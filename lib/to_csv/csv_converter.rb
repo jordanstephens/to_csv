@@ -155,16 +155,16 @@ module ToCSV
       end
 
       def human_attribute_names(attributes)
-        @opts[:locale] ? translate(attributes) : humanize(attributes)
+        @opts[:locale] ? translate(attributes) : titleize(attributes)
       end
 
-      def humanize(attributes)
-        attributes.map(&:humanize)
+      def titleize(attributes)
+        attributes.map(&:titleize)
       end
 
       def translate(attributes)
         ::I18n.with_options :locale => @opts[:locale], :scope => [:activerecord, :attributes, @data.first.class.to_s.underscore] do |locale|
-          attributes.map { |attribute| locale.t(attribute, :default => attribute.humanize) }
+          attributes.map { |attribute| locale.t(attribute, :default => attribute.titleize) }
         end
       end
 

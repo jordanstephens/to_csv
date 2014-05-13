@@ -42,7 +42,7 @@ module ToCSV
   #      and will use it to translate the columns to friendly headers.
   #      Methods will be translated from
   #      <tt>[:activerecord, :attributes, <model>]</tt>. If the translation
-  #      is missing, then a simple humanize will be called.
+  #      is missing, then a simple titleize will be called.
   #
   # 2. *csv_options*
   #    Accepts all options listed in <tt>FasterCSV::DEFAULT_OPTIONS</tt>.
